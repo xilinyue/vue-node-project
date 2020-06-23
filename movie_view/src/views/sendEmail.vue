@@ -9,11 +9,13 @@
         <!--用户相关信息-->
         <label>收件箱</label>
         <div>
-            <email-list></email-list>
+            <email-list v-for="item in receive_items" :title="item.title"
+            :from-user="item.fromUser" :context="item.context"></email-list>
         </div>
         <label>发件箱</label>
         <div>
-            <email-list></email-list>
+            <email-list v-for="item in send_items" :title="item.title"
+                        :from-user="item.fromUser" :context="item.context"></email-list>
         </div>
         <send-talk-box></send-talk-box>
         <common-footer></common-footer>
@@ -32,7 +34,16 @@
             SendTalkBox,
             EmailList,
             UserMessage,
-            MovieIndexHeader}
+            MovieIndexHeader},
+        data() {
+            return{
+                receive_items: [],
+                send_items: []
+            }
+        },
+        created() {
+            //获取数据
+        }
     }
 </script>
 

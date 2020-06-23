@@ -1,14 +1,15 @@
 <template>
     <div class="message">
-        <div>题目</div>
-        <div>来源用户</div>
-        <div>一条内容</div>
+        <div>{{title}}</div>
+        <div>{{fromUser}}</div>
+        <div>{{context}}</div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "EmailList"
+        name: "EmailList",
+        props: ['title','fromUser','context']
     }
 </script>
 

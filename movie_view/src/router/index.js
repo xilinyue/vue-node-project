@@ -20,6 +20,11 @@ const routes = [
         component: () => import('../views/registerPage')
     },
     {
+        path: '/findPassword',
+        name: 'findPassword',
+        component: () => import('../views/findBackPassword')
+    },
+    {
         path: '/userInfo',
         name: 'userInfo',
         component: () => import('../views/userInfo')

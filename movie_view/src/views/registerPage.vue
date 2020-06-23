@@ -23,7 +23,7 @@
                     <input placeholder="手机" />
                 </div>
                 <div class="box">
-                    <button>注  册：</button>
+                    <button>注  册</button>
                 </div>
             </div>
         </div>

@@ -1,7 +1,18 @@
 # dependencies  npm包文件
+.DS_Store
+node_modules
+/dist
 /node_modules
-/.idea
-/.git
+
+# Editor directories and files
+.idea
+.vscode
+.git
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
 # production  打包文件
 /build

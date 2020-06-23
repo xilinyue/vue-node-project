@@ -4,16 +4,16 @@
             <div>
                 <div class="box">
                     <label>用户名：</label>
-                    <input placeholder="用户名">
+                    <input placeholder="用户名" v-model="username">
                 </div>
                 <div class="box">
                     <label>密码：</label>
-                    <input placeholder="密码">
+                    <input placeholder="密码" v-model="password" type="password">
                 </div>
                 <div class="box">
-                    <button>登录</button>
-                    <button style="margin-left: 10px">注册</button>
-                    <button style="margin-left: 10px">忘记密码</button>
+                    <button @click="userLogin">登录</button>
+                    <button style="margin-left: 10px" @click="userRegister">注册</button>
+                    <button style="margin-left: 10px" @click="findBackPassword">忘记密码</button>
                 </div>
             </div>
         </div>
@@ -22,7 +22,29 @@
 
 <script>
     export default {
-        name: "loginPage"
+        name: "loginPage",
+        data() {
+            return{
+                username: '',
+                password: ''
+            }
+        },
+        methods: {
+            //用户登录
+            userLogin() {
+                // 存储token
+                // localStorage.setItem("token", token);
+                // localStorage.setItem("username", token);
+                // localStorage.setItem("_id", token);
+            },
+            userRegister() {
+                this.$router.push("/register");
+            },
+            // 找回密码
+            findBackPassword() {
+                this.$router.push("/findPassword")
+            }
+        }
     }
 </script>
 

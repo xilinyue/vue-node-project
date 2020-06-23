@@ -8,32 +8,32 @@
         </div>
 <!--        用户的相关信息-->
         <div>
-            <div class="box">用户名：用户名</div>
+            <div class="box">用户名：{{userDetail.username}}</div>
         </div>
         <div>
-            <div class="box">用户邮箱：邮箱</div>
+            <div class="box">用户邮箱：{{userDetail.userMail}}</div>
         </div>
         <div>
-            <div class="box">用户电话：电话</div>
+            <div class="box">用户电话：{{userDetail.userPhone}}</div>
         </div>
         <div>
-            <div class="box">用户状态：用户状态（封停与否）</div>
+            <div class="box">用户状态：{{userStatus}}</div>
         </div>
-        <div>
-            <button>修改密码</button>
+        <div v-if="!showRePassword">
+            <button @click="showChangeUserPassword">修改密码</button>
         </div>
         <!--平时需要隐藏-->
-        <div>
+        <div v-if="showRePassword">
             <div class="box">
                 <label>旧密码：</label>
-                <input placeholder="输入旧密码">
+                <input v-model="password" placeholder="输入旧密码">
             </div>
             <div class="box">
                 <label>新密码：</label>
-                <input placeholder="输入新密码">
+                <input v-model="repassword" placeholder="输入新密码">
             </div>
             <div>
-                <button>修改密码</button>
+                <button @click="changeUserPassword">修改密码</button>
             </div>
         </div>
         <div style="padding-top: 10px">
@@ -53,7 +53,28 @@
     import CommonFooter from "../components/CommonFooter";
     export default {
         name: "userInfo",
-        components: {CommonFooter, UserMessage, MovieIndexHeader}
+        components: {CommonFooter, UserMessage, MovieIndexHeader},
+        data() {
+            return{
+                items: [],
+                userDetail: [],
+                userStatus: '',
+                showRePassword: false,
+                password: '',
+                repassword: ''
+            }
+        },
+        created() {
+            //获取用户信息
+        },
+        methods: {
+            showChangeUserPassword() {
+                this.showRePassword = true;
+            },
+            changeUserPassword() {
+
+            }
+        }
     }
 </script>
 

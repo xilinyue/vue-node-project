@@ -5,7 +5,7 @@
         <div>
             <ul>
                 <li v-for="item in items">
-                    XXX 评论 XXX
+                    {{item.username}} 评论: {{item.context}}
                 </li>
             </ul>
         </div>
@@ -21,11 +21,15 @@
 <script>
     export default {
         name: "Comment",
+        props: ['movie_id'],
         data() {
             return {
                 items: [],
                 context: ""
             }
+        },
+        created() {
+            // 根据id获取所有的items评论
         },
         methods: {
             send_comment: function() {

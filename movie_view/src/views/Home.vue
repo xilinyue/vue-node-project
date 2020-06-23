@@ -12,14 +12,16 @@
         <div class="contentMain">
             <div>
                 <div class="contentLeft">
-<!--                    <ul class="cont-ul">-->
-<!--                        <movie-list></movie-list>-->
-<!--                    </ul>-->
+                    <div class="cont-ul">
+                        <movie-list v-for="item in movieItems" :key="item._id"
+                            id="item._id" :movie-name="item.movieName" :movie-time="item.movieTime"></movie-list>
+                    </div>
                 </div>
                 <div class="contentRight">
-<!--                    <ul class="cont-ul">-->
-<!--                        <new-list></new-list>-->
-<!--                    </ul>-->
+                    <div class="cont-ul">
+                        <new-list v-for="item in newsItems" :key="item._id"
+                                  id="item._id" :article-title="item.articleTitle" :article-time="item.articleTime"></new-list>
+                    </div>
                 </div>
             </div>
         </div>
@@ -43,6 +45,12 @@
             MovieList,
             IndexHeaderPic,
             UserMessage
+        },
+        data() {
+            return{
+                movieItems: [],
+                newsItems: []
+            }
         }
     }
 </script>

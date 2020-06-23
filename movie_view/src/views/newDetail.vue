@@ -4,12 +4,12 @@
             <movie-index-header></movie-index-header>
         </div>
         <div class="contentMain">
-            <h1>文章题目</h1>
-            <div>文章的发布时间</div>
-            <div class="contentText">文章的内容</div>
+            <h1>{{newDetail.articleTitle}}</h1>
+            <div>{{newDetail.articleTime}}</div>
+            <div class="contentText">{{newDetail.articleContext}}</div>
         </div>
         <div>
-            <comment></comment>
+            <comment :movie_id="article_id"></comment>
         </div>
         <div>
             <common-footer></common-footer>
@@ -27,6 +27,15 @@
             MovieIndexHeader,
             CommonFooter,
             Comment
+        },
+        data() {
+            return{
+                newDetail: [],
+                article_id: ''
+            }
+        },
+        created() {
+            this.article_id = this.$route.query.id;
         }
     }
 </script>
