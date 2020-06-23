@@ -21,6 +21,8 @@
 </template>
 
 <script>
+    import userServices from "../api/userServices";
+
     export default {
         name: "loginPage",
         data() {
@@ -32,6 +34,10 @@
         methods: {
             //用户登录
             userLogin() {
+                //发起请求
+                userServices.login({username: this.username,password: this.password}).then(res => {
+                    console.log(res);
+                });
                 // 存储token
                 // localStorage.setItem("token", token);
                 // localStorage.setItem("username", token);

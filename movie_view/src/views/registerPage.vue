@@ -31,6 +31,7 @@
 </template>
 
 <script>
+    import userServices from "../api/userServices";
     export default {
         name: "registerPage"
     }
