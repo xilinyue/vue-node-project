@@ -36,7 +36,15 @@
             userLogin() {
                 //发起请求
                 userServices.login({username: this.username,password: this.password}).then(res => {
-                    console.log(res);
+                    let data = res.data;
+                    if (data.status === 0){
+                        localStorage.setItem("token", data.data.token);
+                        localStorage.setItem("username", data.data.user.username);
+                        localStorage.setItem("_id", data.data.user._id);
+                        this.$router.push("/");
+                    }else{
+                        alert(data.message);
+                    }
                 });
                 // 存储token
                 // localStorage.setItem("token", token);
